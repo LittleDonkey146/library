@@ -1,7 +1,7 @@
+let library = [];
+
 const addBook = document.querySelector(".add-book");
 addBook.addEventListener('click', newBook);
-
-let library = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -17,13 +17,15 @@ function addBookToLibrary(newBook) {
     library.push(newBook);
 }
 
-// const hobbit = new Book("Hobbit", "Alex", "25", "not read");
-// console.log(hobbit.info());
-
 function newBook() {
     let answer = new Book(prompt("title"), prompt("author"), prompt("pages"), prompt("yes/no"));
     addBookToLibrary(answer);     
 }
 
+function readLibrary() {
+    for(let i = 0; i < library.length; i++) {
+        console.log(library[i]);
+    }
+}
+
 console.log(library);
-console.log(answer.info());
