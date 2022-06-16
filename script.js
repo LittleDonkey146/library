@@ -1,6 +1,8 @@
 let library = [];
 
 const addBook = document.querySelector(".add-book");
+const cardBox = document.querySelector(".cards-box");
+
 addBook.addEventListener('click', newBook);
 
 function Book(title, author, pages, read) {
@@ -19,7 +21,8 @@ function addBookToLibrary(newBook) {
 
 function newBook() {
     let answer = new Book(prompt("title"), prompt("author"), prompt("pages"), prompt("yes/no"));
-    addBookToLibrary(answer);     
+    addBookToLibrary(answer);
+    addBookToPage(answer);
 }
 
 function readLibrary() {
@@ -28,4 +31,9 @@ function readLibrary() {
     }
 }
 
-console.log(library);
+function addBookToPage(book) {
+    const newnewBook = document.createElement('div');
+    newnewBook.classList.add('cards');
+    newnewBook.textContent = `${book.title}`;
+    cardBox.appendChild(newnewBook);
+}

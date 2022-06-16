@@ -20,10 +20,20 @@ body {
 }
 
 .cards-box  {
-    height: 80%;
-    width: 100%;
-    background-color: white;
     display: grid;
+    grid-template-columns: repeat(fit-content, minmax(100px, 1fr));
+    grid-template-rows: repeat(fit-content, minmax(100px, 1fr));
+    height: 80%;
+    width: 90%;
+    display: grid;
+    gap: 10px;
+}
+
+.cards {
+    height: 10vh;
+    width: 10vw;
+    background-color: aqua;
+    box-shadow: 2px 2px 2px 2px gray;
 }
 
 footer {
