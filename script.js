@@ -34,6 +34,9 @@ function readLibrary() {
 function addBookToPage(book) {
     const newnewBook = document.createElement('div');
     newnewBook.classList.add('cards');
-    newnewBook.textContent = `${book.title}`;
+    newnewBook.textContent = `Title: ${book.title}` 
+    + ` Author: ${book.author}` 
+    + ` Pages: ${book.pages}` 
+    + ` Did you read it? ${book.read}`;
     cardBox.appendChild(newnewBook);
 }

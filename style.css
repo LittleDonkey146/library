@@ -5,8 +5,8 @@ html, body {
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,27 +21,30 @@ body {
 
 .cards-box  {
     display: grid;
-    grid-template-columns: repeat(fit-content, minmax(100px, 1fr));
-    grid-template-rows: repeat(fit-content, minmax(100px, 1fr));
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-template-rows: repeat(auto, minmax(100px, 1fr));
     height: 80%;
     width: 90%;
-    display: grid;
     gap: 10px;
 }
 
 .cards {
-    height: 10vh;
+    display: flex;
+    height: 20vh;
     width: 10vw;
-    background-color: aqua;
-    box-shadow: 2px 2px 2px 2px gray;
+    background-color: white;
+    box-shadow: 1px 1px 2px 1px gray;
+    border-radius: 10px;
 }
 
 footer {
     display: flex;
     position: absolute;
+    bottom: 0;
     width: 100%;
     height: 60px;
-    bottom: 0;    
 }
 
 footer div {
