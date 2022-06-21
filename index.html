@@ -10,15 +10,33 @@
     <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
 </head>
 <body>
+    <div class="popup">
+        <div class="popup-content">
+            <div class="popup-card">
+                <h3>Add in collection</h3>
+                <input type="text" id="title" name="title" placeholder="Title" required
+                maxlength="100">
+                <input type="text" id="author" name="author" placeholder="Author"required 
+                maxlength="100">
+                <input type="number" id="pages" name="pages" placeholder="Pages" required 
+                maxlength="5">
+                <div>
+                    <label for="read">Have you read it?</label>
+                    <input type="checkbox" id="read" name="read-book">
+                </div>
+                <input class="submit" type="submit">
+            </div>
+        </div>
+    </div>
     <div class="addbtn">
-        <button class="add-book">Add a Book!</button>
+        <button class="add-book">Add Book</button>
     </div>
     <div class="cards-box">
         <div class="cards">Some info to have the card full</div>
     </div>
     <footer>
         <div>
-            Copyright © 2022 LittleDonkey146 
+            <p>Copyright © 2022 LittleDonkey146</p>
             <a href="https://github.com/LittleDonkey146" target="_blank"><img alt="GitHub Logo" src="images/git-github-hub-repository-icon-813483.png"></a>
         </div>
     </footer>

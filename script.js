@@ -1,9 +1,13 @@
 let library = [];
 
+const doc = document.querySelector("body");
 const addBook = document.querySelector(".add-book");
 const cardBox = document.querySelector(".cards-box");
+const popupBtn = document.querySelector(".popup");
+const submitBtn = document.querySelector(".submit");
 
 addBook.addEventListener('click', newBook);
+submitBtn.addEventListener('click', closePopup);
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -20,9 +24,8 @@ function addBookToLibrary(newBook) {
 }
 
 function newBook() {
-    let answer = new Book(prompt("title"), prompt("author"), prompt("pages"), prompt("yes/no"));
-    addBookToLibrary(answer);
-    addBookToPage(answer);
+    popupBtn.style.display = "block";
+    ;
 }
 
 function readLibrary() {
@@ -32,11 +35,18 @@ function readLibrary() {
 }
 
 function addBookToPage(book) {
-    const newnewBook = document.createElement('div');
-    newnewBook.classList.add('cards');
-    newnewBook.textContent = `Title: ${book.title}` 
+    const newBook = document.createElement('div');
+    const newBookElement = document.createElement('p');
+    newBook.classList.add('cards');
+    newBookElement.textContent = `Title: ${book.title}` 
     + ` Author: ${book.author}` 
     + ` Pages: ${book.pages}` 
     + ` Did you read it? ${book.read}`;
-    cardBox.appendChild(newnewBook);
+    cardBox.appendChild(newBook);
+    newBook.appendChild(newBookElement);
+}
+
+function closePopup() {
+   
+    popupBtn.style.display = "none";
 }

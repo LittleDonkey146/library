@@ -14,6 +14,7 @@ body {
 }
 
 .addbtn {
+    margin: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,6 +40,68 @@ body {
     border-radius: 10px;
 }
 
+.popup {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    color: white;
+    z-index: 999;
+}
+
+.popup-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-card {
+    height: 20vw;
+    width: 15vw;
+    background-color: rgb(231, 230, 230);
+    box-shadow: 1px 1px 2px 1px gray;
+    border-radius: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popup-card input {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.popup-card input{
+    width: 70%;
+    height: 40px;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.popup-card div {
+    display: flex;
+    width: 70%;
+    height: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-card .submit {
+    background-color: rgb(133, 240, 133);
+}
+
+.popup-card .submit:hover {
+    background-color: rgb(111, 211, 111);
+}
+
 footer {
     display: flex;
     position: absolute;
@@ -48,6 +111,10 @@ footer {
 }
 
 footer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     margin: auto auto;
 }
 
