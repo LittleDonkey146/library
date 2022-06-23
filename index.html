@@ -13,18 +13,20 @@
     <div class="popup">
         <div class="popup-content">
             <div class="popup-card">
-                <h3>Add in collection</h3>
-                <input type="text" id="title" name="title" placeholder="Title" required
-                maxlength="100">
-                <input type="text" id="author" name="author" placeholder="Author"required 
-                maxlength="100">
-                <input type="number" id="pages" name="pages" placeholder="Pages" required 
-                maxlength="5">
-                <div>
-                    <label for="read">Have you read it?</label>
-                    <input type="checkbox" id="read" name="read-book">
-                </div>
-                <input class="submit" type="submit">
+                <form action="index.html" id="form">
+                    <h3>Add in collection</h3>
+                    <input type="text" id="title" name="title" placeholder="Title" required
+                    maxlength="100">
+                    <input type="text" id="author" name="author" placeholder="Author"required 
+                    maxlength="100">
+                    <input type="number" id="pages" name="pages" placeholder="Pages" required 
+                    maxlength="5">
+                    <div>
+                        <label for="read">Have you read it?</label>
+                        <input type="checkbox" id="read" name="read-book">
+                    </div>
+                    <input class="submit" type="submit">    
+                </form>
             </div>
         </div>
     </div>
@@ -32,7 +34,10 @@
         <button class="add-book">Add Book</button>
     </div>
     <div class="cards-box">
-        <div class="cards">Some info to have the card full</div>
+        <div class="cards">
+            <p>Some info to have the card full</p>
+            <button class="remove-button">Remove</button>
+        </div>
     </div>
     <footer>
         <div>

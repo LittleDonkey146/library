@@ -33,6 +33,9 @@ body {
 
 .cards {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     height: 20vh;
     width: 10vw;
     background-color: white;
@@ -40,8 +43,22 @@ body {
     border-radius: 10px;
 }
 
+.cards p, .cards button {
+    width: 80%;
+}
+
+.cards button {
+    background-color: rgb(255, 58, 58);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+}
+
 .popup {
-    display: block;
+    /* use this display value to have by default activated / deactivated the popup */
+    display: none; 
     position: absolute;
     height: 100%;
     width: 100%;
@@ -60,18 +77,16 @@ body {
     align-items: center;
 }
 
-.popup-card {
-    height: 20vw;
-    width: 15vw;
+.popup-card form{
+    width: 300px;
     background-color: rgb(231, 230, 230);
     box-shadow: 1px 1px 2px 1px gray;
     border-radius: 10px;
     color: black;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 20px;
 }
 
 .popup-card input {
@@ -80,10 +95,11 @@ body {
 }
 
 .popup-card input{
-    width: 70%;
     height: 40px;
+    width: auto;
     border: 0px;
     border-radius: 10px;
+    margin: 10px;
 }
 
 .popup-card div {
