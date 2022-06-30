@@ -43,17 +43,23 @@ body {
     border-radius: 10px;
 }
 
-.cards p, .cards button {
+.cards p, .cards button.remove-button {
     width: 80%;
 }
 
-.cards button {
+.cards button.remove-button {
     background-color: rgb(255, 58, 58);
     color: white;
     font-weight: bold;
     font-size: 18px;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.cards button.remove-button:hover {
+    background-color: rgb(214, 50, 50);
 }
 
 .popup {

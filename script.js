@@ -28,8 +28,6 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(newBook) {
     library.push(newBook);
-    console.log(newBook);
-    console.log('test');
 }
 
 function newBook() {
@@ -48,15 +46,13 @@ const pages = form.elements['pages'];
 
 function closePopup() {
     
-    bookTitle = title.value;
-    bookAuthor = author.value;
-    bookPages = pages.value;
+    const testBook = new Book(title.value, author.value, pages.value, read.value);
+    addBookToLibrary(testBook);
+    bookTitle = testBook.title;
+    bookAuthor = testBook.author;
+    bookPages = testBook.pages;
 
-    console.log(bookTitle);
-    console.log(bookAuthor);
-    console.log(bookPages);
     popupBtn.style.display = "none";
-    addBookToLibrary(bookTitle);
     addBookToPage();
 }
 
@@ -80,6 +76,6 @@ function addBookToPage() {
 }
 
 function removeFunc() {
-    const removeThis = document.querySelector('.cards');
+    const removeThis = document.querySelectorAll('.cards');
     removeThis.parentNode.removeChild(removeThis);
 }
