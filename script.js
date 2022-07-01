@@ -57,25 +57,38 @@ function closePopup() {
 }
 
 function addBookToPage() {
+    const removeBtn = document.createElement('button')
     const newBook = document.createElement('div');
-    const newBookElement = document.createElement('p');
+    const titlePar = document.createElement('p');
+    const authorPar = document.createElement('p');
+    const pagesPar = document.createElement('p');
+    // one more to show if the book is read
+
     newBook.classList.add('cards');
+    removeBtn.classList.add('remove-button');
+    removeBtn.dataset.cardIndex = '1';
 
-    // Remove button creation
-    const newRemoveBtn = document.createElement('button')
-    newRemoveBtn.classList.add('remove-button');
-    newRemoveBtn.textContent = 'Remove';
+    titlePar.textContent = `"${bookTitle}"`;
+    authorPar.textContent = `${bookAuthor}`;
+    pagesPar.textContent = `${bookPages} pages`;
+    // one more text content to show if the book is read
+    removeBtn.textContent = 'Remove';
 
-    newBookElement.textContent = `Title: ${bookTitle}` 
-    + ` Author: ${bookAuthor}` 
-    + ` Pages: ${bookPages}` 
-    + ` Did you read it?`; //INSERT READ OPTION HERE
+    removeBtn.addEventListener('click', removeFunc);
+    
     cardBox.appendChild(newBook);
-    newBook.appendChild(newBookElement);
-    newBook.appendChild(newRemoveBtn);
+    newBook.appendChild(titlePar);
+    newBook.appendChild(authorPar);
+    newBook.appendChild(pagesPar);
+    // one more appendChild to get the read property in the site
+    newBook.appendChild(removeBtn);
 }
 
 function removeFunc() {
-    const removeThis = document.querySelectorAll('.cards');
-    removeThis.parentNode.removeChild(removeThis);
+    console.log(library[0].title);
+
+    console.log(library[removeBtn.dataset.cardIndex].title);
+
 }
+
+// i need to use filter()
