@@ -1,4 +1,5 @@
 let library = [];
+var i = 0;
 
 const doc = document.querySelector("body");
 const addBook = document.querySelector(".add-book");
@@ -14,7 +15,7 @@ let bookPages = ' ';
 
 addBook.addEventListener('click', newBook);
 submitBtn.addEventListener('click', closePopup);
-removeBtn.addEventListener('click', removeFunc);
+removeBtn.addEventListener('click', (e) => removeFunc(e.target));
 form.addEventListener('click', function(event) {
     event.preventDefault();
 });
@@ -66,7 +67,8 @@ function addBookToPage() {
 
     newBook.classList.add('cards');
     removeBtn.classList.add('remove-button');
-    removeBtn.dataset.cardIndex = '1';
+    // removeBtn.dataset.cardIndex = this.Book.
+    removeBtn.dataset.cardIndex = i;
 
     titlePar.textContent = `"${bookTitle}"`;
     authorPar.textContent = `${bookAuthor}`;
@@ -74,7 +76,7 @@ function addBookToPage() {
     // one more text content to show if the book is read
     removeBtn.textContent = 'Remove';
 
-    removeBtn.addEventListener('click', removeFunc);
+    removeBtn.addEventListener('click', (e) => removeFunc(e.target));
     
     cardBox.appendChild(newBook);
     newBook.appendChild(titlePar);
@@ -82,13 +84,43 @@ function addBookToPage() {
     newBook.appendChild(pagesPar);
     // one more appendChild to get the read property in the site
     newBook.appendChild(removeBtn);
+    i++;
 }
 
-function removeFunc() {
-    console.log(library[0].title);
+function removeFunc(book) {
 
-    console.log(library[removeBtn.dataset.cardIndex].title);
+    // let newVar;
+    // for(let i = 0; i < library.length; i++) {
+    //     console.log(book.dataset.cardIndex);
+    //     console.log(i);
+    //     console.log(book.dataset.cardIndex == i);
 
+    //     newVar = library.filter(() => book.dataset.cardIndex != i);
+    //     console.log(newVar);
+    // }
+    
+    // Deleting the 'card' from the HTML document (correct it is)
+    book.parentElement.remove();
+    
+    let newVar = library.filter(function() { 
+        
+        console.log(book.dataset.cardIndex);
+        for (let i = 0; i < library.length; i++) {
+            return book.dataset.cardIndex !== i;
+        }
+    });
+
+    console.log(newVar);
+    library = newVar;
+}
+
+function findTitle(test) {
+    
 }
 
 // i need to use filter()
+
+// TO DO:
+// - give correct index numbers to each remove button
+// - I want to get the cardIndex of each remove button in order to check WHICH data attribute is
+// clicked on what button and then remove this ( [i] ) Book from the Array
