@@ -67,8 +67,8 @@ function addBookToPage() {
 
     newBook.classList.add('cards');
     removeBtn.classList.add('remove-button');
-    // removeBtn.dataset.cardIndex = this.Book.
-    removeBtn.dataset.cardIndex = i;
+    removeBtn.dataset.cardIndex = library.length;
+    
 
     titlePar.textContent = `"${bookTitle}"`;
     authorPar.textContent = `${bookAuthor}`;
@@ -88,39 +88,20 @@ function addBookToPage() {
 }
 
 function removeFunc(book) {
-
-    // let newVar;
-    // for(let i = 0; i < library.length; i++) {
-    //     console.log(book.dataset.cardIndex);
-    //     console.log(i);
-    //     console.log(book.dataset.cardIndex == i);
-
-    //     newVar = library.filter(() => book.dataset.cardIndex != i);
-    //     console.log(newVar);
-    // }
-    
-    // Deleting the 'card' from the HTML document (correct it is)
+    console.log(this.Book);
     book.parentElement.remove();
-    
-    let newVar = library.filter(function() { 
-        
-        console.log(book.dataset.cardIndex);
-        for (let i = 0; i < library.length; i++) {
-            return book.dataset.cardIndex !== i;
+    let z = 0;
+
+    let newVar = library.filter(function(e) { 
+        z++;
+        if(book.dataset.cardIndex == z) {
+
+            return false;
+        } else {
+            return true;
         }
     });
 
     console.log(newVar);
     library = newVar;
 }
-
-function findTitle(test) {
-    
-}
-
-// i need to use filter()
-
-// TO DO:
-// - give correct index numbers to each remove button
-// - I want to get the cardIndex of each remove button in order to check WHICH data attribute is
-// clicked on what button and then remove this ( [i] ) Book from the Array
