@@ -111,3 +111,4 @@ function removeFunc(book) {
 // TODO: 
 // 1) Check if the name title of the book is already in the library AND displayed on the screen
 // 2) Reset the values when the user wants to import a new book
+// 3) Change the constructors to classes
