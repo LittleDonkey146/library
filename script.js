@@ -1,5 +1,4 @@
 let library = [];
-var i = 0;
 
 const doc = document.querySelector("body");
 const addBook = document.querySelector(".add-book");
@@ -52,11 +51,8 @@ function closePopup() {
     bookTitle = testBook.title;
     bookAuthor = testBook.author;
     bookPages = testBook.pages;
-
     popupBtn.style.display = "none";
     addBookToPage();
-
-    bookTitle = '';
 }
 
 function addBookToPage() {
@@ -69,8 +65,8 @@ function addBookToPage() {
 
     newBook.classList.add('cards');
     removeBtn.classList.add('remove-button');
-    removeBtn.dataset.cardIndex = library.length;
-    
+
+    newBook.dataset.cardIndex = library.length;
 
     titlePar.textContent = `"${bookTitle}"`;
     authorPar.textContent = `${bookAuthor}`;
@@ -78,7 +74,7 @@ function addBookToPage() {
     // one more text content to show if the book is read
     removeBtn.textContent = 'Remove';
 
-    removeBtn.addEventListener('click', (e) => removeFunc(e.target));
+    removeBtn.addEventListener('click', (e) => removeFunc(e.target.parentElement));
     
     cardBox.appendChild(newBook);
     newBook.appendChild(titlePar);
@@ -86,29 +82,35 @@ function addBookToPage() {
     newBook.appendChild(pagesPar);
     // one more appendChild to get the read property in the site
     newBook.appendChild(removeBtn);
-    i++;
+}
+
+function changeCardIndex() {
+    library.forEach(e => {
+        for(let i = 0; i < library.length; i++) {
+            console.log(e);
+        }
+    });
 }
 
 function removeFunc(book) {
-    console.log(this.Book);
-    book.parentElement.remove();
-    let z = 0;
+    book.remove();
 
     let newVar = library.filter(function(e) { 
-        z++;
-        if(book.dataset.cardIndex == z) {
+        console.log(book.dataset.cardIndex +' '+ library.indexOf(e));
 
+        if(book.dataset.cardIndex == (library.indexOf(e)+1)) {
             return false;
         } else {
             return true;
         }
     });
-
-    console.log(newVar);
+    changeCardIndex();
     library = newVar;
 }
 
 // TODO: 
-// 1) Check if the name title of the book is already in the library AND displayed on the screen
+// 1) Check if the name title of the book is already in the library
 // 2) Reset the values when the user wants to import a new book
 // 3) Change the constructors to classes
+// 4) Make deleting things from the screen, also get deleted from the library.
+//    It kind of works, but it's broken
